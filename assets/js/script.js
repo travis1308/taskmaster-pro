@@ -45,8 +45,13 @@ var saveTasks = function() {
 };
 
 $(".list-group").on("click", "p", function() {
-  var text = $(this).text().trim();
-  var textInput = $("<textarea>").addClass("form-control").val(text);
+  var text = $(this)
+    .text()
+    .trim();
+
+  var textInput = $("<textarea>")
+    .addClass("form-control")
+    .val(text);
   $(this).replaceWith(textInput);
   textInput.trigger("focus");
 });
@@ -54,8 +59,7 @@ $(".list-group").on("click", "p", function() {
 $(".list-group").on("blur", "textarea", function () {
   // get the textarea's current value/text
   var text = $(this)
-    .val()
-    .trim();
+    .val();
 
   // get the parent ul's id attribute
   var status = $(this)
@@ -103,9 +107,7 @@ $(".list-group").on("click", "span", function() {
 // value of due date was changed
 $(".list-group").on("blur", "input[type='text']", function() {
   // get current text
-  var date = $(this)
-    .val()
-    .trim();
+  var date = $(this).val();
 
   // get the parent ul's id attribute
   var status = $(this)
